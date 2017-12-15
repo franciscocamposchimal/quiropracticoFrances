@@ -4,15 +4,40 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-  <title>Quiropráctico Frances- Sistema de Citas</title>
+  <title>Quiropráctico Francés- Sistema de Citas</title>
 
   <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
     <meta name="viewport" content="width=device-width" />
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="assets/css/material-dashboard.css" rel="stylesheet"/>
     <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-  <script src="assets/js/jquery.min.js" type="text/javascript"></script>
+    <script src="assets/js/jquery.min.js" type="text/javascript"></script>
 
+ <!-- Alertify -->
+ <!-- JavaScript -->
+        <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/alertify.min.js"></script>
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/semantic.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.min.css"/>
+
+        <!-- 
+            RTL version
+        -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/alertify.rtl.min.css"/>
+        <!-- Default theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/default.rtl.min.css"/>
+        <!-- Semantic UI theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/semantic.rtl.min.css"/>
+        <!-- Bootstrap theme -->
+        <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.0/build/css/themes/bootstrap.rtl.min.css"/>
+ <!-- Alertify -->
+        <link href='assets/css/styles.css' rel='stylesheet' />
 <?php if(isset($_GET["view"]) && $_GET["view"]=="home"):?>
 <link href='assets/fullcalendar/fullcalendar.min.css' rel='stylesheet' />
 <link href='assets/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
@@ -105,7 +130,21 @@
                 </ul>
               </li>
             </ul>
-
+          <?php 
+          if(isset($_GET['view']))
+          {
+             $get = $_GET['view'];
+          }else{
+            $get = null;
+          }
+             if( $get  == "home"){
+          ?>
+            <ul class="nav navbar-nav navbar-right dots">
+              <li class="nav-item">
+                 <a id="bell" href="#"><i class="fa fa-bell-o" aria-hidden="true"><mark id="mark"></mark></i></a> 
+              </li>
+            </ul>
+             <?php }?>
             <form class="navbar-form navbar-right" role="search">
               <div class="form-group  is-empty">
                 <input type="text" class="form-control" placeholder="Search">
@@ -137,36 +176,19 @@
           <nav class="pull-left">
             <ul>
               <li>
-                <a href="https://www.facebook.com/alex.rubio.16144606" >
+                <a href="#" >
                   Log de cambios
                 </a>
               </li>
               <li>
-                <a href="https://www.facebook.com/alex.rubio.16144606" target="_blank">
-                  Alex Rubio
+                <a href="#" target="_blank">
+                  AR
                 </a>
               </li>
-        <!--
-              <li>
-                <a href="#">
-                  Company
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                  Portfolio
-                </a>
-              </li>
-              <li>
-                <a href="#">
-                   Blog
-                </a>
-              </li>
-          -->
             </ul>
           </nav>
           <p class="copyright pull-right">
-            <a href="https://www.facebook.com/alex.rubio.16144606" target="_blank">AlexRubio</a> &copy; 2017 
+            <a href="#" target="_blank">AR</a> &copy; 2017 
           </p>
         </div>
       </footer>
@@ -192,7 +214,7 @@
   <script src="assets/js/bootstrap-notify.js"></script>
 
   <!--  Google Maps Plugin    -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
 
   <!-- Material Dashboard javascript methods -->
   <script src="assets/js/material-dashboard.js"></script>

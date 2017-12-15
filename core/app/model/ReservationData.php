@@ -2,7 +2,6 @@
 class ReservationData {
 	public static $tablename = "reservation";
 
-
 	public function ReservationData(){
 		$this->name = "";
 		$this->lastname = "";
@@ -39,6 +38,11 @@ class ReservationData {
 		Executor::doit($sql);
 	}
 
+	public function updateReminder(){
+		$sql = "update ".self::$tablename." set reminder_id=\"$this->reminder_id\" where id=$this->id";
+		Executor::doit($sql);
+	}
+
 	public static function getById($id){
 		$sql = "select * from ".self::$tablename." where id=$id";
 		$query = Executor::doit($sql);
@@ -46,7 +50,7 @@ class ReservationData {
 	}
 
 		public static function getPacients($id){
-		$sql = "select name from pacient where id=$id";
+		$sql = "select * from pacient where id=$id";
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ReservationData());
 	}
@@ -70,7 +74,6 @@ class ReservationData {
 		$query = Executor::doit($sql);
 		return Model::many($query[0],new ReservationData());
 	}
-
 
 	public static function getAll(){
 		$sql = "select * from ".self::$tablename." where date(date_at)>=date(NOW()) order by date_at";

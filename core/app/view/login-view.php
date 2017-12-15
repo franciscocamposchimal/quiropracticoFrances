@@ -21,7 +21,7 @@ if(Session::getUID()!=""){
 
 <div class="card">
   <div class="card-header" data-background-color="blue">
-      <h4 class="title">Acceder a BookMedik</h4>
+      <h4 class="title">Acceder</h4>
   </div>
   <div class="card-content table-responsive">
 			    	<form accept-charset="UTF-8" role="form" method="post" action="index.php?view=processlogin">
